@@ -222,7 +222,7 @@ class WarrantyDetails(models.Model):
     vads_threeds_status = models.CharField(
         choices=constants.VADS_THREEDS_STATUS_CHOICES,
         max_length=1, blank=True, null=True)
-    vads_threeds_sign_valid = models.NullBooleanField()
+    vads_threeds_sign_valid = models.BooleanField(null=True)
     vads_threeds_error_code = models.CharField(
         max_length=2, blank=True, null=True)
     vads_threeds_exit_status = models.CharField(
@@ -365,7 +365,7 @@ class PaymentRequest(RequestDetails, CustomerDetails,
     vads_payment_cards = models.CharField(
         max_length=127, blank=True, null=True)
     vads_return_mode = models.CharField(
-        max_length=12, choices=constants.VADS_RETURN_MODE_CHOICES,
+        max_length=13, choices=constants.VADS_RETURN_MODE_CHOICES,
         blank=True, null=True)
     vads_theme_config = models.CharField(
         max_length=255, blank=True, null=True)
