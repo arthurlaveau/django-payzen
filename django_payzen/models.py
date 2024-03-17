@@ -390,9 +390,9 @@ class PaymentRequest(RequestDetails, CustomerDetails,
         max_length=255, blank=True, null=True)
 
     # Relations
-    theme = models.ForeignKey(ThemeConfig, blank=True, null=True)
+    theme = models.ForeignKey(ThemeConfig, on_delete=models.DO_NOTHING, blank=True, null=True)
     payment_config = models.ForeignKey(
-        MultiPaymentConfig, blank=True, null=True)
+        MultiPaymentConfig, on_delete=models.DO_NOTHING, blank=True, null=True)
     custom_payment_config = models.ManyToManyField(CustomPaymentConfig)
 
     class Meta:
