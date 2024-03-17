@@ -356,7 +356,7 @@ class PaymentRequest(RequestDetails, CustomerDetails,
                      OrderDetails, ShippingDetails):
     """Model that contains all Payzen parameters to initiate a payment."""
 
-    user = models.ForeignKey(auth_user_model, blank=True, null=True)
+    user = models.ForeignKey(auth_user_model, on_delete=models.DO_NOTHING, blank=True, null=True)
 
     vads_capture_delay = models.PositiveIntegerField(blank=True, null=True)
     vads_contrib = models.CharField(
