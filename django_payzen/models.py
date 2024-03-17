@@ -11,7 +11,6 @@ import datetime
 
 from django.conf import settings
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.timezone import utc
 
 from . import app_settings
@@ -22,7 +21,6 @@ from . import constants
 auth_user_model = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 
-@python_2_unicode_compatible
 class ThemeConfig(models.Model):
     """Model that contains the theme parameters of the payment form.
 
@@ -48,7 +46,6 @@ class ThemeConfig(models.Model):
         return vads_theme_config[:-1]
 
 
-@python_2_unicode_compatible
 class MultiPaymentConfig(models.Model):
     """Model that contains parameters for multi-payment.
 
@@ -72,7 +69,6 @@ class MultiPaymentConfig(models.Model):
             self.first, self.count, self.period)
 
 
-@python_2_unicode_compatible
 class CustomPaymentConfig(models.Model):
     """Model to manage a custom payment scheduler."""
     date = models.DateField()
@@ -83,7 +79,6 @@ class CustomPaymentConfig(models.Model):
             self.date.strftime("%Y%m%d"), self.amount)
 
 
-@python_2_unicode_compatible
 class VADContract(models.Model):
     """Model to manage several VAD contrats.
 
