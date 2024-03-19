@@ -210,9 +210,9 @@ class Migration(migrations.Migration):
                 ('vads_redirect_error_timeout', models.PositiveIntegerField(blank=True, null=True)),
                 ('vads_redirect_error_message', models.CharField(blank=True, max_length=255, null=True)),
                 ('custom_payment_config', models.ManyToManyField(to='django_payzen.custompaymentconfig')),
-                ('payment_config', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='django_payzen.multipaymentconfig')),
-                ('theme', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='django_payzen.themeconfig')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),
+                ('payment_config', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='django_payzen.multipaymentconfig')),
+                ('theme', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='django_payzen.themeconfig')),
+                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'verbose_name': 'Request',

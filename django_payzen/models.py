@@ -356,7 +356,7 @@ class PaymentRequest(RequestDetails, CustomerDetails,
                      OrderDetails, ShippingDetails):
     """Model that contains all Payzen parameters to initiate a payment."""
 
-    user = models.ForeignKey(auth_user_model, on_delete=models.SET_NULL, blank=True, null=True)
+    user = models.ForeignKey(auth_user_model, on_delete=models.CASCADE, blank=True, null=True)
 
     vads_capture_delay = models.PositiveIntegerField(blank=True, null=True)
     vads_contrib = models.CharField(
@@ -390,9 +390,9 @@ class PaymentRequest(RequestDetails, CustomerDetails,
         max_length=255, blank=True, null=True)
 
     # Relations
-    theme = models.ForeignKey(ThemeConfig, on_delete=models.SET_NULL, blank=True, null=True)
+    theme = models.ForeignKey(ThemeConfig, on_delete=models.CASCADE, blank=True, null=True)
     payment_config = models.ForeignKey(
-        MultiPaymentConfig, on_delete=models.SET_NULL, blank=True, null=True)
+        MultiPaymentConfig, on_delete=models.CASCADE, blank=True, null=True)
     custom_payment_config = models.ManyToManyField(CustomPaymentConfig)
 
     class Meta:
