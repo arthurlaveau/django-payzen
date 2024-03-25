@@ -222,7 +222,7 @@ class WarrantyDetails(models.Model):
     vads_threeds_status = models.CharField(
         choices=constants.VADS_THREEDS_STATUS_CHOICES,
         max_length=1, blank=True, null=True)
-    vads_threeds_sign_valid = models.BooleanField(null=True)
+    vads_threeds_sign_valid = models.BooleanField(null=True, blank=True)
     vads_threeds_error_code = models.CharField(
         max_length=2, blank=True, null=True)
     vads_threeds_exit_status = models.CharField(
@@ -391,8 +391,7 @@ class PaymentRequest(RequestDetails, CustomerDetails,
 
     # Relations
     theme = models.ForeignKey(ThemeConfig, on_delete=models.CASCADE, blank=True, null=True)
-    payment_config = models.ForeignKey(
-        MultiPaymentConfig, on_delete=models.CASCADE, blank=True, null=True)
+    payment_config = models.ForeignKey(MultiPaymentConfig, on_delete=models.CASCADE, blank=True, null=True)
     custom_payment_config = models.ManyToManyField(CustomPaymentConfig)
 
     class Meta:
